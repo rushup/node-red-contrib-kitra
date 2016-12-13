@@ -1,0 +1,68 @@
+<script type="text/javascript">
+	
+    RED.nodes.registerType('lra_configure',{
+        category: 'kitra output',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""},
+			pin: {value:1, required:true},
+			managed: {value:"true", required:true},
+			percentage: {value:50, required:false},
+			effect_number: {value:70, required:false},
+			autostart: {value:"true", required:true},
+        },
+        inputs:1,
+        outputs:1,
+		icon:"kitra.png",
+        label: function() {
+            return this.name||"lra_configure";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="lra_configure">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-pin"><i class="fa"></i> Pin </label>
+        <input type="text" id="node-input-pin">
+    </div>
+    <div class="form-row">
+        <label for="node-input-managed"><i class="fa fa-rocket"></i> Managed </label>
+		<select  type="text" id="node-input-managed" >
+		  <option value="true">Enabled</option>
+		  <option value="false">Disabled</option>
+		</select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-percentage"><i class="fa fa-percent"></i> Percentage </label>
+        <input type="text" id="node-input-percentage">
+    </div>
+    <div class="form-row">
+        <label for="node-input-effect_number"><i class="fa fa-list"></i> Effect Number </label>
+        <input type="text" id="node-input-effect_number">
+    </div>
+    <div class="form-row">
+        <label for="node-input-autostart"><i class="fa fa-road"></i> Autostart </label>
+		<select  type="text" id="node-input-autostart" >
+		  <option value="true">Yes</option>
+		  <option value="false">No</option>
+		</select>
+    </div>
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="lra_configure">
+    <p>Lra configuration</p>
+	 <ul>
+	  <li>Pin: which motor drive, for now only pin 1 is avaiable If no value is provided <code>msg.lra_pin</code>will be used..</li>
+	  <li>Managed: If enabled use embedded effects (check drv2605l datasheet 'Waveform Library Effects List'), if disabled
+	  use percentage value.</li>
+	  <li>Percentage: Used only if managed is disabled.  If no value is provided <code>msg.lra_percentage[pin-1]</code>will be used.</li>
+	  <li>Effect: Wich effect use in managed mode, values range from 1 to 123. If no value is provided <code>msg.lra_effect_number[pin-1]</code>will be used.</li>
+	  <li>Autostart: For future use. leave that to true. </li>
+	</ul> 
+	<p><b>Known issue:</b> For now PWM can be felt only with values > 51 with the motor we provide.</p>
+</script>

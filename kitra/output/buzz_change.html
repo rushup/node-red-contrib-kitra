@@ -1,0 +1,60 @@
+<script type="text/javascript">
+
+	
+    RED.nodes.registerType('buzz_change',{
+        category: 'kitra output',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""},
+			frequency: {value:4000, required:false},
+			duty_cycle: {value:50, required:false},
+			use_toggle: {value: "true", required:false},
+			toggle:{value:0, required:false}
+        },
+        inputs:1,
+        outputs:1,
+		icon:"kitra.png",
+        label: function() {
+            return this.name||"buzz_change";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="buzz_change">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-frequency"><i class="fa"></i> Frequency(Hz) </label>
+        <input type="text" id="node-input-frequency">
+    </div>
+    <div class="form-row">
+        <label for="node-input-duty_cycle"><i class="fa"></i> Duty Cycle(%) </label>
+        <input type="text" id="node-input-duty_cycle">
+    </div>
+    <div class="form-row">
+        <label for="node-input-use_toggle"><i class="fa fa-list"></i> Use toggle </label>
+		<select  type="text" id="node-input-use_toggle" >
+		  <option value="true">Yes</option>
+		  <option value="false">No</option>
+		</select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-toggle"><i class="fa"></i> Toogle </label>
+        <input type="text" id="node-input-toggle">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="buzz_change">
+    <p>Change buzz state. Buzzer needs to be enabled.</p>
+	<p>
+	 <ul>
+	  <li>Frequency: Buzzer frequency in hz. If no value is given, <code>msg.buzz_frequency</code> is used.</li>
+	  <li>Duty_cycle: Buzzer duty cycle from 0 to 100. (usual value is 50). If no value is given,<code>msg.buzz_duty_cycle</code> is used.</li>
+	  <li>Use Toogle: if Yes use toogle parameter (bepp-off sequence), if no just turns on the buzz.
+	  <li>Toogle: buzzer on period value. (if you want to keep it on just put a very big value in the integer range). If no value is given,<code>msg.buzz_toggle</code> is used.</li>
+	</ul> 
+	</p>
+	<p><b>TODO: better toogle support.</b></p>
+</script>

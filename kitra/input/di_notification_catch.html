@@ -1,0 +1,28 @@
+<script type="text/javascript">
+
+	
+    RED.nodes.registerType('di_notification_catch',{
+        category: 'kitra input',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+		icon:"kitra.png",
+        label: function() {
+            return this.name||"di_notification_catch";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="di_notification_catch">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="di_notification_catch">
+    <p>Catch di notification/readings. result is stored in <code>msg.state</code> and <code>msg.pin</code> </p>
+</script>

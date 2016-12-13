@@ -1,0 +1,84 @@
+<script type="text/javascript">
+
+	
+    RED.nodes.registerType('led_rgb_set_managed',{
+        category: 'kitra output',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""},
+			pin: {value:"1",required:false},
+			effect: {value:"1",required:true},
+			color_target: {value:"FFFFFF", required:false},
+			intensity_target: {value:"50", required:false},
+			duration: {value:"1000",required:false},
+			loop: {value:"1",required:false},
+			loop_delay: {value:"0",required:false},
+			autostart: {value:"true", required:false}
+        },
+        inputs:1,
+        outputs:1,
+		icon:"kitra.png",
+        label: function() {
+            return this.name||"led_rgb_set_managed";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="led_rgb_set_managed">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-pin"><i class="fa fa-tag"></i> Pin </label>
+        <input type="text" id="node-input-pin">
+    </div>
+    <div class="form-row">
+        <label for="node-input-effect"><i class="fa fa-flask"></i> Effect </label>
+		<select  type="text" id="node-input-effect" >
+		  <option value="0">None</option>
+		  <option value="1">Fade</option>
+		</select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-color_target"><i class="fa fa-tint"></i> Color target </label>
+        <input type="text" id="node-input-color_target">
+    </div>
+    <div class="form-row">
+        <label for="node-input-intensity_target"><i class="fa fa-lightbulb-o"></i> Intensity target (%) </label>
+        <input type="text" id="node-input-intensity_target">
+    </div>
+    <div class="form-row">
+        <label for="node-input-duration"><i class="fa fa-clock-o"></i> Duration </label>
+        <input type="text" id="node-input-duration">
+    </div>
+    <div class="form-row">
+        <label for="node-input-loop"><i class="fa fa-refresh"></i> Loop </label>
+        <input type="text" id="node-input-loop">
+    </div>
+    <div class="form-row">
+        <label for="node-input-loop_delay"><i class="fa fa-clock-o"></i> Loop delay </label>
+        <input type="text" id="node-input-loop_delay">
+    </div>
+    <div class="form-row">
+        <label for="node-input-autostart"><i class="fa fa-road"></i> Autostart </label>
+		<select  type="text" id="node-input-autostart" >
+		  <option value="true">Enabled</option>
+		  <option value="false">Disabled</option>
+		</select>
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="led_rgb_set_managed">
+    <p>Managed effect for rgb leds. Supported only from firmware V1.</p>
+	 <ul>
+	  <li>Pin: which led to apply the effect. A value of 0 means all. If no value is provided, <code>msg.pin</code> will be used.</li>
+	  <li>Effect: Id of the effect </li>
+	  <li>Color target: 24bit color in hex chars, If no value is provided, <code>msg.led_color_target[pin-1]</code> will be used. (if 0 led_color[0] is used in this case).</li>
+	  <li>Intensity target: Led intensity from 0 to 100. If no value is provided, <code>msg.led_intensity_target[pin-1]</code> will be used.</li>
+	  <li>Duration: Duration of the effect in ms. If no value is provided, <code>msg.led_duration[pin-1]</code> will be used.</li>
+	  <li>Loop: How many time repeat the effect, 0 means forever. If no value is provided, <code>msg.led_loop[pin-1]</code> will be used.</li>
+	  <li>Loop delay: Delay after an effect in ms. If no value is provided, <code>msg.led_loop_delay[pin-1]</code> will be used.</li>
+	  <li>Autostart: True if we want the effect to start immediately. </li>
+	</ul> 
+</script>

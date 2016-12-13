@@ -1,0 +1,37 @@
+<script type="text/javascript">
+	
+    RED.nodes.registerType('cap_read_state',{
+        category: 'kitra output',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""},
+			pin: {value:1,required:true},
+        },
+        inputs:1,
+        outputs:1,
+		icon:"kitra.png",
+        label: function() {
+            return this.name||"cap_read_state";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="cap_read_state">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-pin"><i class="fa fa-map-pin"></i> Pin </label>
+        <input type="text" id="node-input-pin">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="cap_read_state">
+    <p>Read a key status.</p>
+	<p>
+	 <ul>
+	  <li>Pin: Each pin indicates which keys read. 0 means all.</li>
+	</ul> 
+	</p>
+</script>

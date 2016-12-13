@@ -1,0 +1,50 @@
+<script type="text/javascript">
+
+	
+    RED.nodes.registerType('di_enable',{
+        category: 'kitra output',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""},
+			pin: {value:1,required:true},
+			enabled: {value:"true", required:true},
+			pull: {value:"none", required: true}
+        },
+        inputs:1,
+        outputs:1,
+		icon:"kitra.png",
+        label: function() {
+            return this.name||"di_enable";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="di_enable">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-pin"><i class="fa fa-tag"></i> Pin </label>
+        <input type="text" id="node-input-pin">
+    </div>
+    <div class="form-row">
+        <label for="node-input-enabled"><i class="fa fa-check"></i> Enabled </label>
+		<select  type="text" id="node-input-enabled" >
+		  <option value="true">Enabled</option>
+		  <option value="false">Disabled</option>
+		</select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-pull"><i class="fa"></i> Pull </label>
+		<select  type="text" id="node-input-pull" >
+		  <option value="none">No pull</option>
+		  <option value="pu">Pull up</option>
+		  <option value="pd">Pull down</option>
+		</select>
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="di_enable">
+    <p>Enable or disable input pin.</p>
+</script>

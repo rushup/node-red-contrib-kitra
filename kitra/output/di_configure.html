@@ -1,0 +1,64 @@
+<script type="text/javascript">
+
+	
+    RED.nodes.registerType('di_configure',{
+        category: 'kitra output',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""},
+			pin: {value:1,required:true},
+			notification_enabled: {value:"true", required:true},
+			active_state: {value:"true", required:true},
+			sampling_time: {value:0, required:true},
+			filter_activation: {value:0, required:true}
+        },
+        inputs:1,
+        outputs:1,
+		icon:"kitra.png",
+        label: function() {
+            return this.name||"di_configure";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="di_configure">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-pin"><i class="fa fa-tag"></i> Pin </label>
+        <input type="text" id="node-input-pin">
+    </div>
+    <div class="form-row">
+        <label for="node-input-notification_enabled"><i class="fa fa-check"></i> Enabled </label>
+		<select  type="text" id="node-input-notification_enabled" >
+		  <option value="true">Enabled</option>
+		  <option value="false">Disabled</option>
+		</select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-active_state"><i class="fa fa-arrow-up"></i> Enabled </label>
+		<select  type="text" id="node-input-active_state" >
+		  <option value="true">High</option>
+		  <option value="false">Low</option>
+		</select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-sampling_time"><i class="fa fa-refresh"></i> Sampling time(ms) </label>
+        <input type="text" id="node-input-sampling_time">
+    </div>
+    <div class="form-row">
+        <label for="node-input-filter_activation"><i class="fa fa-filter"></i> Filter activation </label>
+        <input type="text" id="node-input-filter_activation">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="di_configure">
+    <p>Configure a certain input pin. Notifications are received through di_notification_catch.</p>
+	 <ul>
+	  <li>active_state - in some scanario it can be useful to receive high when the output is low.</li>
+	  <li>sampling_time - input pin is read every x ms</li>
+	  <li>filter_activation - pin's value must be the same for [filter_activation] times to trigger state change.</li>
+	</ul> 
+</script>

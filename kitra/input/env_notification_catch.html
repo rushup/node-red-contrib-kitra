@@ -1,0 +1,29 @@
+<script type="text/javascript">
+
+    RED.nodes.registerType('env_notification_catch',{
+        category: 'kitra input',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+		icon:"kitra.png",
+        label: function() {
+            return this.name||"env_notification_catch";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="env_notification_catch">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="env_notification_catch">
+    <p>Catch enviromental readings/notifications. Values are stored in 
+	<code><p>msg.lux</p><p>msg.temperature</p><p>msg.humidity</p><p>msg.pressure</p></code> 
+	if avaiable.</p>
+</script>

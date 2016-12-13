@@ -1,0 +1,70 @@
+<script type="text/javascript">
+	
+    RED.nodes.registerType('cap_configure_notifications',{
+        category: 'kitra output',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""},
+			pin: {value:1,required:true},
+			notification_touch_enabled: {value:"false",required:true},
+			notification_press_enabled: {value:"false",required:true},
+			notification_release_enabled: {value:"false",required:true},
+			threshold_level_press: { value: 50,required:true}
+        },
+        inputs:1,
+        outputs:1,
+		icon:"kitra.png",
+        label: function() {
+            return this.name||"cap_configure_notifications";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="cap_configure_notifications">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-pin"><i class="fa fa-map-pin"></i> Pin </label>
+        <input type="text" id="node-input-pin">
+    </div>
+    <div class="form-row">
+        <label for="node-input-notification_touch_enabled"><i class="fa fa-bell"></i> Touch </label>
+		<select  type="text" id="node-input-notification_touch_enabled" >
+		  <option value="true">Enabled</option>
+		  <option value="false">Disabled</option>
+		</select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-notification_press_enabled"><i class="fa fa-bell"></i> Press </label>
+		<select  type="text" id="node-input-notification_press_enabled" >
+		  <option value="true">Enabled</option>
+		  <option value="false">Disabled</option>
+		</select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-notification_release_enabled"><i class="fa fa-bell"></i> Release </label>
+		<select  type="text" id="node-input-notification_release_enabled" >
+		  <option value="true">Enabled</option>
+		  <option value="false">Disabled</option>
+		</select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-threshold_level_press"><i class="fa fa-sort-amount-asc"></i> Threshold </label>
+        <input type="text" id="node-input-threshold_level_press">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="cap_configure_notifications">
+    <p>Configure capacitive touch notifications.</p>
+	<p>
+	 <ul>
+	  <li>Pin: Each pin indicates which keys configure. 0 means all.</li>
+	  <li>Notification touch enable: touch event is notified</li>
+	  <li>Notification press enable: click event is notified</li>
+	  <li>Notification release enable: release event is notified</li>
+	  <li>Threshold level press: time required to validate a touch to be click</li>
+	</ul> 
+	</p>
+</script>

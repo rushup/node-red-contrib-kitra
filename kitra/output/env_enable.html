@@ -1,0 +1,69 @@
+<script type="text/javascript">
+
+	
+    RED.nodes.registerType('env_enable',{
+        category: 'kitra output',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""},
+			enabled: {value:"true", required:true},
+			pressure: {value:"true", required:true},
+			temperature: {value:"true", required:true},
+			humidity: {value:"true", required:true},
+			lux: {value:"true", required:true}
+        },
+        inputs:1,
+        outputs:1,
+		icon:"kitra.png",
+        label: function() {
+            return this.name||"env_enable";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="env_enable">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-enabled"><i class="fa fa-check"></i> Enabled </label>
+		<select  type="text" id="node-input-enabled" >
+		  <option value="true">Enabled</option>
+		  <option value="false">Disabled</option>
+		</select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-pressure"><i class="fa fa-anchor"></i> Pressure </label>
+		<select  type="text" id="node-input-pressure" >
+		  <option value="true">Apply</option>
+		  <option value="false">Ignore</option>
+		</select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-temperature"><i class="fa fa-sun-o"></i> Temperature </label>
+		<select  type="text" id="node-input-temperature" >
+		  <option value="true">Apply</option>
+		  <option value="false">Ignore</option>
+		</select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-humidity"><i class="fa fa-tint"></i> Humidity </label>
+		<select  type="text" id="node-input-humidity" >
+		  <option value="true">Apply</option>
+		  <option value="false">Ignore</option>
+		</select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-lux"><i class="fa fa-lightbulb-o"></i> Lux </label>
+		<select  type="text" id="node-input-lux" >
+		  <option value="true">Apply</option>
+		  <option value="false">Ignore</option>
+		</select>
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="env_enable">
+    <p>Enable disalbe a enviromental sensors. Enable/Disable fields apply to sensors set as "Apply".</p>
+	<p>The lux sensor is the first proximity/lux sensor.</p>
+</script>

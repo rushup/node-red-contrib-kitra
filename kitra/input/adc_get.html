@@ -1,0 +1,28 @@
+<script type="text/javascript">
+
+	
+    RED.nodes.registerType('adc_get',{
+        category: 'kitra input',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+		icon:"kitra.png",
+        label: function() {
+            return this.name||"adc_get";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="adc_get">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="adc_get">
+    <p>Catch adc reading from kitra. adc value is putted inside <code>msg.payload</code>. which sensor is sending data is in <code>msg.adc_pin</code></p>
+</script>

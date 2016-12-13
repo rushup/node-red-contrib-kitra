@@ -1,0 +1,38 @@
+<script type="text/javascript">
+	
+    RED.nodes.registerType('ntc_to_c',{
+        category: 'kitra utility',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""},
+			b: {value:4000,required:true},
+			ntc_res: {value:100000,required:true}
+        },
+        inputs:1,
+        outputs:1,
+		icon:"kitra.png",
+        label: function() {
+            return this.name||"ntc_to_c";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="ntc_to_c">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-pin"><i class="fa fa-tag"></i> B </label>
+        <input type="text" id="node-input-b">
+    </div>
+    <div class="form-row">
+        <label for="node-input-pin"><i class="fa fa-tag"></i> Ntc Res (K) </label>
+        <input type="text" id="node-input-ntc_res">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="ntc_to_c">
+    <p>Get a payload of raw adc value and returns a msg.temp in celsius. </p>
+    <p>Check the datasheet of yout ntc to fill parameters. </p>
+</script>

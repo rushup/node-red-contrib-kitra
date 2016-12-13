@@ -1,0 +1,57 @@
+<script type="text/javascript">
+
+	
+    RED.nodes.registerType('led_rgb_set',{
+        category: 'kitra output',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""},
+			pin: {value:1,required:false},
+			color: {value:"FFFFFF", required:false},
+			intensity: {value:50, required:false},
+			autostart: {value:"true", required:true}
+        },
+        inputs:1,
+        outputs:1,
+		icon:"kitra.png",
+        label: function() {
+            return this.name||"led_rgb_set";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="led_rgb_set">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-pin"><i class="fa fa-tag"></i> Pin </label>
+        <input type="text" id="node-input-pin">
+    </div>
+    <div class="form-row">
+        <label for="node-input-color"><i class="fa fa-tint"></i> Color </label>
+        <input type="text" id="node-input-color">
+    </div>
+    <div class="form-row">
+        <label for="node-input-intensity"><i class="fa fa-lightbulb-o"></i> Intensity(%) </label>
+        <input type="text" id="node-input-intensity">
+    </div>
+    <div class="form-row">
+        <label for="node-input-autostart"><i class="fa fa-road"></i> Autostart </label>
+		<select  type="text" id="node-input-autostart" >
+		  <option value="true">Enabled</option>
+		  <option value="false">Disabled</option>
+		</select>
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="led_rgb_set">
+    <p>Change the state of rgb leds.</p>
+	 <ul>
+	  <li>Pin: which led enable. A value of 0 means all. If no value is provided, <code>msg.pin</code> will be used.</li>
+	  <li>Color: 24bit color in hex chars, If no value is provided, <code>msg.led_color[pin-1]</code> will be used. (if 0 led_color[0] is used in this case).</li>
+	  <li>Intensity: Led intensity from 0 to 100. If no value is provided, <code>msg.led_intensity[pin-1]</code> will be used.</li>
+	  <li>Autostart: For future use. leave that to true. </li>
+	</ul> 
+</script>

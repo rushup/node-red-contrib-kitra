@@ -1,0 +1,98 @@
+<script type="text/javascript">
+	
+    RED.nodes.registerType('pos_configure',{
+        category: 'kitra output',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""},
+			enable_raw_notification: {value:"false", required:true},
+			enable_euler_notification: {value:"0", required:true},
+			sampling_frequency: {value:1, required:true},
+			tap_notification: {value:"false", required:true},
+			dtap_notification: {value:"false", required:true},
+			freefall_notification: {value:"false", required:true},
+			tilt_notification: {value:"false", required:true},
+			wakeup_notification: {value:"false", required:true},
+			pedometer_notification: {value:"false", required:true}
+        },
+        inputs:1,
+        outputs:1,
+		icon:"kitra.png",
+        label: function() {
+            return this.name||"pos_configure";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="pos_configure">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-enable_raw_notification"><i class="fa fa-bell"></i> Raw notification </label>
+		<select  type="text" id="node-input-enable_raw_notification" >
+		  <option value="true">Enabled</option>
+		  <option value="false">Disabled</option>
+		</select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-enable_euler_notification"><i class="fa fa-bell"></i> Enable euler notification </label>
+		<select  type="text" id="node-input-enable_euler_notification" >
+		  <option value="2">Enabled 6X</option>
+		  <option value="1">Enabled 9X</option>
+		  <option value="0">Disabled</option>
+		</select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-sampling_frequency"><i class="fa fa-refresh"></i> Sampling frequency (Hz) </label>
+        <input type="text" id="node-input-sampling_frequency">
+    </div>
+    <div class="form-row">
+        <label for="node-input-tap_notification"><i class="fa fa-bell"></i> Tap notification </label>
+		<select  type="text" id="node-input-tap_notification" >
+		  <option value="true">Enabled</option>
+		  <option value="false">Disabled</option>
+		</select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-dtap_notification"><i class="fa fa-bell"></i> Double tap notification </label>
+		<select  type="text" id="node-input-dtap_notification" >
+		  <option value="true">Enabled</option>
+		  <option value="false">Disabled</option>
+		</select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-freefall_notification"><i class="fa fa-bell"></i> Freefall notification </label>
+		<select  type="text" id="node-input-freefall_notification" >
+		  <option value="true">Enabled</option>
+		  <option value="false">Disabled</option>
+		</select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-tilt_notification"><i class="fa fa-bell"></i> Tilt notification </label>
+		<select  type="text" id="node-input-tilt_notification" >
+		  <option value="true">Enabled</option>
+		  <option value="false">Disabled</option>
+		</select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-wakeup_notification"><i class="fa fa-bell"></i> Wakeup notification </label>
+		<select  type="text" id="node-input-wakeup_notification" >
+		  <option value="true">Enabled</option>
+		  <option value="false">Disabled</option>
+		</select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-pedometer_notification"><i class="fa fa-bell"></i> Pedometer notification </label>
+		<select  type="text" id="node-input-pedometer_notification" >
+		  <option value="true">Enabled</option>
+		  <option value="false">Disabled</option>
+		</select>
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="pos_configure">
+    <p>Position/Orientation sensors configuration configuration. This command also clears the pedometer step counter.</p>
+    <p>Enabled 6X is supported only from firmware V1</p>
+</script>

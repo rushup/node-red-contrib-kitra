@@ -1,0 +1,34 @@
+<script type="text/javascript">
+	
+    RED.nodes.registerType('adc_read',{
+        category: 'kitra output',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""},
+			pin: {value:1,required:true}
+        },
+        inputs:1,
+        outputs:1,
+		icon:"kitra.png",
+        label: function() {
+            return this.name||"adc_read";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="adc_read">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-pin"><i class="fa fa-tag"></i> Pin </label>
+        <input type="text" id="node-input-pin">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="adc_read">
+    <p>Request adc value. When this message is sent you will receive a corresponding response from the serial. To 
+	catch that message use the adc_get node in the input category. </p>
+	<p>Pin is between 1 and 4.</p>
+</script>

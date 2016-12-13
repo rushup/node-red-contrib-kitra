@@ -1,0 +1,42 @@
+<script type="text/javascript">
+
+	
+    RED.nodes.registerType('adc_change_mode',{
+        category: 'kitra output',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""},
+			pin: {value:1,required:true},
+			mode: {value:"start", required:true}
+        },
+        inputs:1,
+        outputs:1,
+		icon:"kitra.png",
+        label: function() {
+            return this.name||"adc_change_mode";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="adc_change_mode">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-pin"><i class="fa fa-tag"></i> Pin </label>
+        <input type="text" id="node-input-pin">
+    </div>
+    <div class="form-row">
+        <label for="node-input-mode"><i class="fa fa-list"></i> Mode </label>
+		<select  type="text" id="node-input-mode" >
+		  <option value="start">Start</option>
+		  <option value="stop">Stop</option>
+		  <option value="pause">Pause</option>
+		</select>
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="adc_change_mode">
+    <p>Change adc mode. Pin value 0 means all.</p>
+</script>

@@ -1,0 +1,30 @@
+<script type="text/javascript">
+
+	
+    RED.nodes.registerType('prox_lux_get_prox',{
+        category: 'kitra input',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+		icon:"kitra.png",
+        label: function() {
+            return this.name||"prox_lux_get_prox";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="prox_lux_get_prox">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="prox_lux_get_prox">
+    <p>Catch proximity reading from the kitra. proximity value is putted inside <code>msg.payload</code> and <code>msg.prox_mm</code>.
+	Which sensor is sending data is in <code>msg.prox_pin</code></p>
+	<p><code>msg.payload</code> is deprecated and will be removed in future versions.</p>
+</script>

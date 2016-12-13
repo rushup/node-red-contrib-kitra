@@ -1,0 +1,34 @@
+<script type="text/javascript">
+	
+    RED.nodes.registerType('prox_lux_read_prox',{
+        category: 'kitra output',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""},
+			pin: {value:1,required:true}
+        },
+        inputs:1,
+        outputs:1,
+		icon:"kitra.png",
+        label: function() {
+            return this.name||"prox_lux_read_prox";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="prox_lux_read_prox">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-pin"><i class="fa fa-tag"></i> Pin </label>
+        <input type="text" id="node-input-pin">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="prox_lux_read_prox">
+    <p>Request proximity value to the prox/lux sensor. When this message is sent you will receive a corresponding response from the serial. To 
+	catch that message use the prox_lux_get_prox node in the input category. </p>
+	<p>Pin is 1 or 2.</p>
+</script>

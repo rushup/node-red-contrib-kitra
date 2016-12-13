@@ -1,0 +1,40 @@
+<script type="text/javascript">
+	
+    RED.nodes.registerType('lra_enable',{
+        category: 'kitra output',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""},
+			pin: {value:1,required:true},
+			enabled: {value:"true", required:true}
+        },
+        inputs:1,
+        outputs:1,
+		icon:"kitra.png",
+        label: function() {
+            return this.name||"lra_enable";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="lra_enable">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-pin"><i class="fa fa-tag"></i> Pin </label>
+        <input type="text" id="node-input-pin">
+    </div>
+    <div class="form-row">
+        <label for="node-input-enabled"><i class="fa fa-check"></i> Enabled </label>
+		<select  type="text" id="node-input-enabled" >
+		  <option value="true">Enabled</option>
+		  <option value="false">Disabled</option>
+		</select>
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="lra_enable">
+    <p>Enable or disable lra sensor. By default it is disabled. For now only sensor/pin 1 avaiable.</p>
+</script>

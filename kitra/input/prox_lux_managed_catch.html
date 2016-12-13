@@ -1,0 +1,32 @@
+<script type="text/javascript">
+
+	
+    RED.nodes.registerType('prox_lux_managed_catch',{
+        category: 'kitra input',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""}
+        },
+        inputs:1,
+        outputs:2,
+		icon:"kitra.png",
+        label: function() {
+            return this.name||"prox_lux_managed_catch";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="prox_lux_managed_catch">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="prox_lux_managed_catch">
+    <p>Catch swipe notification. The corrisponding message is redirected to its output node:</p>
+	<ul>
+	  <li> Swipe Left </li>
+	  <li> Swipe Right </li>
+	</ul> 
+</script>

@@ -1,0 +1,77 @@
+<script type="text/javascript">
+	
+    RED.nodes.registerType('prox_lux_configure',{
+        category: 'kitra output',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""},
+			pin: {value:1,required:true},
+			disable_lux: {value:"false", required:true},
+			disable_prox: {value:"false", required:true},
+			extended_range: {value:0, required:true}
+        },
+        inputs:1,
+        outputs:1,
+		icon:"kitra.png",
+        label: function() {
+            return this.name||"prox_lux_configure";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="prox_lux_configure">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-pin"><i class="fa"></i> Pin </label>
+        <input type="text" id="node-input-pin">
+    </div>
+    <div class="form-row">
+        <label for="node-input-disable_lux"><i class="fa fa-ban"></i> Disable lux </label>
+		<select  type="text" id="node-input-disable_lux" >
+		  <option value="true">Yes</option>
+		  <option value="false">No</option>
+		</select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-disable_prox"><i class="fa fa-ban"></i> Disable prox </label>
+		<select  type="text" id="node-input-disable_prox" >
+		  <option value="true">Yes</option>
+		  <option value="false">No</option>
+		</select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-extended_range"><i class="fa fa-hand-paper-o"></i> Extended range </label>
+        <input type="text" id="node-input-extended_range">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="prox_lux_configure">
+    <p>Proximity and lux sensor configuration.</p>
+<p>Kitra board embeds two proximity sensors:</p>
+
+<ul>
+<li>VL53L0X (pin 1): Proximity sensor for long dinstance measurement. Up to 2 meters on appropriate enviroment condition.</li>
+<li>VL6180X (pin 2): Proximity sensor for short distance measurement and light. This sensor is also used with environment commands when reading light.</li>
+</ul>
+
+	<p>
+ <ul>
+  <li>Pin: which sensor you are referring. 1 or 2.</li>
+  <li>Disable lux: if yes prox reading is better. by default it is enabled.</li>
+  <li>Disable prox: if yes lux reading is better. by default it is enabled.</li>
+  <li>Extended range (pin 1): prox range configuration. <br>
+	(1 -> LONG RANGE) <br>
+	(2 -> HIGH SPEED) <br>
+	(3 -> HIGH ACCURACY)
+  </li>
+  <li>Extended range (pin 2): prox range configuration. <br>
+	(1 -> max 200mm) <br>
+	(2 -> max 400mm) <br>
+	(3 -> max 600mm)
+  </li>
+</ul> 
+</p>
+</script>

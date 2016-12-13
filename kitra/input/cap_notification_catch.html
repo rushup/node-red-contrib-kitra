@@ -1,0 +1,33 @@
+<script type="text/javascript">
+
+	
+    RED.nodes.registerType('cap_notification_catch',{
+        category: 'kitra input',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""}
+        },
+        inputs:1,
+        outputs:2,
+		icon:"kitra.png",
+        label: function() {
+            return this.name||"cap_notification_catch";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="cap_notification_catch">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="cap_notification_catch">
+    <p>Catch capacitive notification and readings. The corrisponding message is redirected to its output node:</p>
+	<ul>
+	  <li>1)Read request response. Data is putted in<code> msg.pin </code>and <code>msg.state </code>. State is 1 if pressed. </li>
+	  <li>2)Notifications. Reiceved data is putted in<code> msg.pin </code>and <code>msg.type </code>. Type is 0 for touch, 1 for release and 2 for click. </li>
+	</ul> 
+	<p> Each notification or reading is sent for each enabled pin. You won't receive any message with a pin value of 0.</p>
+</script>

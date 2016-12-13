@@ -1,0 +1,28 @@
+<script type="text/javascript">
+
+	
+    RED.nodes.registerType('system_status_get',{
+        category: 'kitra input',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+		icon:"kitra.png",
+        label: function() {
+            return this.name||"system_status_get";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="system_status_get">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="system_status_get">
+    <p>Receive kitra status: <code> msg.battery_mv msg.battery_usb_plugged</code></p>
+</script>

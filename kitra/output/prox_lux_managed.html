@@ -1,0 +1,39 @@
+<script type="text/javascript">
+	
+    RED.nodes.registerType('prox_lux_managed',{
+        category: 'kitra output',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""},
+			enabled: {value:"true", required:true}
+        },
+        inputs:1,
+        outputs:1,
+		icon:"kitra.png",
+        label: function() {
+            return this.name||"prox_lux_managed";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="prox_lux_managed">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-enable"><i class="fa fa-rocket"></i> Enabled </label>
+		<select  type="text" id="node-input-enabled" >
+		  <option value="true">Yes</option>
+		  <option value="false">No</option>
+		</select>
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="prox_lux_managed">
+    <p>Enable swipe notifications.</p>
+	<p>To have a decent performance we recommend to disable both lux sensor (through the configure command).</p>
+	<p>Note that this command will chage internal average of the sensor, so all the prox readings will be more liable to noise.
+</p>
+</p>
+</script>

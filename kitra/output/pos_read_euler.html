@@ -1,0 +1,28 @@
+<script type="text/javascript">
+
+	
+    RED.nodes.registerType('pos_read_euler',{
+        category: 'kitra output',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+		icon:"kitra.png",
+        label: function() {
+            return this.name||"pos_read_euler";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="pos_read_euler">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="pos_read_euler">
+    <p>Read euler angler. If this message is sent a single euler notification is received.</p>
+</script>

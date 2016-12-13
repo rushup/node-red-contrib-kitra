@@ -1,0 +1,39 @@
+<script type="text/javascript">
+
+	
+    RED.nodes.registerType('pos_notification_catch',{
+        category: 'kitra input',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""}
+        },
+        inputs:1,
+        outputs:8,
+		icon:"kitra.png",
+        label: function() {
+            return this.name||"pos_notification_catch";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="pos_notification_catch">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="pos_notification_catch">
+    <p>Catch position notification. The corrisponding message is redirected to its output node:</p>
+	<ul>
+	  <li>1)Raw notification node. Reiceved data is putted in<code> msg.acc_x msg.acc_y msg.acc_z msg.gyro_x msg.gyro_y msg.gyro_z magnet_x magnet_y magnet_z </code> </li>
+	  <li>2)Euler notification node. Reiceved data is putted in<code> msg.roll msg.pitch msg.yaw</code></li>
+	  <li>3)Freefall notification node (no payload)</li>
+	  <li>4)Tap notification node (no payload)</li>
+	  <li>5)Double tap notification node (no payload)</li>
+	  <li>6)Tilt notification node (no payload)</li>
+	  <li>7)Wakeup notification node (no payload)</li>
+	  <li>8)Pedometer notification node (msg.extra has cumulative step counter)</li>
+	</ul> 
+	<p>For managed notifications (3,4,5,6,7,8), an additional <code>msg.noti_mask</code> is provided. Every bit of the mask corresponds to a notification. Check the Kitra-COM manual for additional infos.</p>
+</script>
