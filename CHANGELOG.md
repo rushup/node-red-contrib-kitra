@@ -1,3 +1,5 @@
+#### 0.1.4:
+- Microphone source localization support (warning: notification doesn't work on firmware V1)
 #### 0.1.3:
 - Added feature for firmware V1
 

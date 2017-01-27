@@ -1,0 +1,26 @@
+<script type="text/javascript">
+	
+    RED.nodes.registerType('mic_read_angle',{
+        category: 'kitra output',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+		icon:"kitra.png",
+        label: function() {
+            return this.name||"mic_read_angle";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="mic_read_angle">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="mic_read_angle">
+</script>
