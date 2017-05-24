@@ -1,0 +1,41 @@
+<script type="text/javascript">
+
+	
+    RED.nodes.registerType('led_neopixel_enable',{
+        category: 'kitra output',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""},
+			enabled: {value:"true", required:true},
+            nleds: {value:1,required:true}
+        },
+        inputs:1,
+        outputs:1,
+		icon:"kitra.png",
+        label: function() {
+            return this.name||"led_neopixel_enable";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="led_neopixel_enable">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-enabled"><i class="fa fa-check"></i> Enabled </label>
+		<select  type="text" id="node-input-enabled" >
+		  <option value="true">Enabled</option>
+		  <option value="false">Disabled</option>
+		</select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-nleds"><i class="fa fa-plus"></i> N Leds </label>
+        <input type="text" id="node-input-nleds">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="led_neopixel_enable">
+    <p>Enable disalbe a single led rgb. A pin value of 0 means all.</p>
+</script>

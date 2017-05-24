@@ -1,3 +1,5 @@
+#### 0.1.5:
+- Added Neopixel support for firmware V1E2)
 #### 0.1.4:
 - Microphone source localization support (warning: notification doesn't work on firmware V1)
 #### 0.1.3:

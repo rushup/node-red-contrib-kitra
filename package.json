@@ -1,6 +1,6 @@
 {
     "name"         : "node-red-contrib-kitra",
-    "version"      : "0.1.4",
+    "version"      : "0.1.5",
     "description"  : "kitra-com node-red module",
     "dependencies": {
     },
@@ -50,7 +50,9 @@
 			"cap_configure_notifications": "kitra/output/cap_configure_notifications.js",
 			"cap_enable": "kitra/output/cap_enable.js",
 			"cap_read_state": "kitra/output/cap_read_state.js",
-			"cap_notification_catch": "kitra/input/cap_notification_catch.js"
+			"cap_notification_catch": "kitra/input/cap_notification_catch.js",
+            "led_neopixel_enable": "kitra/output/led_neopixel_enable.js",
+            "led_neopixel_set": "kitra/output/led_neopixel_set.js"
         }
     }
 }
