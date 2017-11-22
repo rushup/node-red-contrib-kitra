@@ -18,20 +18,30 @@ module.exports = function(RED) {
 				var splitted = msg.payload.split(",");
 				msg.angle = parseInt(splitted[2].split("*")[0]);
 				
-				node.send([msg, null]);
+				node.send([msg, null, null]);
 				return;
 			}
 			
-			//6.8.2	Notification
+			//6.8.2	Notification source localization
 			if((msg.payload.indexOf("$KITRA,682,") > -1))
 			{
 				var splitted = msg.payload.split(",");
 				msg.angle = parseInt(splitted[2].split("*")[0]);
 				
-				node.send([null,msg]);
+				node.send([null, msg, null]);
 				return;
 			}
-
+            
+			//6.8.4	Notification sound level
+			if((msg.payload.indexOf("$KITRA,684,") > -1))
+			{
+				var splitted = msg.payload.split(",");
+				msg.level = parseInt(splitted[2].split("*")[0]);
+				
+				node.send([null, null, msg]);
+				return;
+			}
+            
         });
     }
     RED.nodes.registerType("mic_notification_catch",MicNotiCatch);

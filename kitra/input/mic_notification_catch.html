@@ -8,7 +8,7 @@
             name: {value:""}
         },
         inputs:1,
-        outputs:2,
+        outputs:3,
 		icon:"kitra.png",
         label: function() {
             return this.name||"mic_notification_catch";
@@ -27,6 +27,7 @@
     <p>Mic notification. The corrisponding message is redirected to its output node:</p>
 	<ul>
 	  <li>1)Read request response. Data is putted in<code> msg.angle </code></li>
-	  <li>2)Notifications. Reiceved data is putted in<code> msg.angle </code></li>
+	  <li>2)Source localicazion notification. Reiceved data is putted in<code> msg.angle </code></li>
+      <li>2)Sound level notification. Reiceved data is putted in<code> msg.level </code></li>
 	</ul> 
 </script>
